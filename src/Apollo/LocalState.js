@@ -4,7 +4,7 @@ export const defaults = {
   // local state의 값 설정
   //# window.localStorage
   // : https://developer.mozilla.org/ko/docs/Web/API/Window/localStorage
-  isLoggedIn: localStorage.getItem("token") !== null ? true : false
+  isLoggedIn: Boolean(localStorage.getItem("token")) || false
 };
 
 export const resolvers = {
