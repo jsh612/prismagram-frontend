@@ -1,11 +1,17 @@
 import React from "react";
+import GlobalStyles from "../Styles/GlobalStyles";
+import styled, { ThemeProvider } from "styled-components";
+import Theme from "../Styles/Theme";
 
-function App() {
+const H2 = styled.h2`
+  color: ${props => props.theme.darkGreyColor};
+`;
+
+export default () => {
   return (
-    <div className="App">
-      <h2>안녕</h2>
-    </div>
+    <ThemeProvider theme={Theme}>
+      <GlobalStyles />
+      <H2>안녕</H2>
+    </ThemeProvider>
   );
-}
-
-export default App;
+};
