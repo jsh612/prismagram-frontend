@@ -52,20 +52,20 @@ export default ({
   lastName,
   email,
   // password,
-  onLogin
+  onSubmit
 }) => {
   return (
     <Wrapper>
       <Form>
         {action === "logIn" ? (
-          <form onSubmit={onLogin}>
+          <form onSubmit={onSubmit}>
             {/* <Input placeholder={"Username"} {...username} />
             <Input placeholder={"Password"} {...password} type="password" /> */}
             <Input placeholder={"Email"} {...email} type="email" />
             <Button text={"로그인"} />
           </form>
         ) : (
-          <form onSubmit={onLogin}>
+          <form onSubmit={onSubmit}>
             <Input placeholder={"First name"} {...firstName} />
             <Input placeholder={"Last name"} {...lastName} />
             <Input placeholder={"Email"} {...email} type="email" />

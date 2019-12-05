@@ -5,4 +5,21 @@ export const LOG_IN = gql`
     requestSecret(email: $email)
   }
 `;
-// mutation [아무이름]]($email: String!)
+// mutation [아무이름]($email: String!)
+
+export const CREATE_ACCOUNT = gql`
+  mutation createAccount(
+    $usernanme: String!
+    $email: String!
+    $firstName: String
+    $lastName: String
+    $bio: String
+  ) {
+    createAccount(
+      usernanme: $usernanme
+      email: $email
+      firstName: $firstName
+      lastName: $lastName
+    )
+  }
+`;
