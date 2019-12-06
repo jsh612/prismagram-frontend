@@ -12,6 +12,8 @@ export default () => {
   const firstName = useInput("");
   const lastName = useInput("");
   const email = useInput("");
+  const secret = useInput("");
+
   // #useMutaion
   //   - https://www.apollographql.com/docs/react/api/react-hooks/#usemutation
   //   - useMutaion(gql구문, 옵션들)
@@ -41,7 +43,8 @@ export default () => {
             toast.error("해당 계정이 없습니다. 계정을 생성해 주세요");
             setTimeout(() => setAction("signUp"), 2000);
           } else {
-            toast.success("로그인 성공");
+            toast.success("해당 email의 메일함에서 비밀 문자를 확인해 주세요");
+            setAction("confirm");
           }
         } catch (error) {
           toast.error("비밀 문자를 요청하지 못했습니다. 다시 시도해 주세요");
@@ -85,6 +88,7 @@ export default () => {
       email={email}
       // password={password}
       onSubmit={onSubmit}
+      secret={secret}
     />
   );
 };
