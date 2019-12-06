@@ -11,6 +11,10 @@ export const resolvers = {
   // 밑의 Mutation은 local state를 변경하는 역할
   Mutation: {
     logUserIn: (_, { token }, { cache }) => {
+      // # cache
+      //   - https://www.apollographql.com/docs/link/links/state/#updating-the-cache
+      //   - To update and read from the cache, you access it via the context,
+      //     which is the third argument passed to your resolver function.
       localStorage.setItem("token", token);
       cache.writeData({
         data: {
