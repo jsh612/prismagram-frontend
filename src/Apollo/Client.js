@@ -3,10 +3,23 @@ import { defaults, resolvers } from "./LocalState";
 
 export default new ApolloClient({
   uri: "http://localhost:4000",
-  // clientState
+  // #clientState
   // - https://www.apollographql.com/docs/link/links/state/#with-apollo-boost
   clientState: {
     defaults,
     resolvers
+  },
+  // 인증 방법
+  // - https://www.apollographql.com/docs/react/networking/authentication/
+  request: operation => {
+    //다음 과정은 confirmSecret을 통해 얻은 token을 header에 넣어주는 역할을 한다.
+    const token = localStorage.getItem("token");
+    operation.setContext({
+      // #setContext
+      // -https://www.apollographql.com/docs/link/overview/#gatsby-focus-wrapper
+      headers: {
+        authorization: token ? `Bearer ${token}` : ""
+      }
+    });
   }
 });
