@@ -12,6 +12,7 @@ const Footer = styled.footer`
 
 const List = styled.ul`
   display: flex;
+  text-align: center;
 `;
 
 const ListItem = styled.li`
@@ -21,6 +22,7 @@ const ListItem = styled.li`
 `;
 
 const Link = styled.a`
+  /* props는 App.js의 <ThemeProvider> 태그에서 보낸 것 */
   color: ${props => props.theme.darkBlueColor};
 `;
 
