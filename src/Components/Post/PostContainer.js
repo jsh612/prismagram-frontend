@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import useInput from "../../Hooks/useInput";
 import PostPresenter from "./PostPresenter";
@@ -13,9 +13,23 @@ const PostContainer = ({
   caption,
   location
 }) => {
-  const [isLikedS, setIsLiked] = useState(isLiked);
-  const [likeCountS, setLikeCount] = useState(likeCount);
+  const [isLikedS, setIsLiked] = useState(isLiked); // 좋아요 누를시  프론트에서 먼저 보여주기위해
+  const [likeCountS, setLikeCount] = useState(likeCount); // 좋아요 누를시  프론트에서 먼저 보여주기위해
+  const [currentItem, setCurrentItem] = useState(0); // 사진 슬라이드를 위함
   const comment = useInput("");
+  const slide = () => {
+    const totalFiles = files.length;
+    if (currentItem === totalFiles - 1) {
+      //해당 파일이 마지막꺼인지 확인
+      setTimeout(() => setCurrentItem(0), 2000);
+    } else {
+      setTimeout(() => setCurrentItem(currentItem + 1), 2000);
+    }
+    return;
+  };
+  useEffect(() => {
+    slide();
+  }, [currentItem]);
   return (
     <PostPresenter
       user={user}
@@ -29,6 +43,7 @@ const PostContainer = ({
       newComment={comment}
       setIsLiked={setIsLiked}
       setLikeCount={setLikeCount}
+      currentItem={currentItem}
     />
   );
 };
