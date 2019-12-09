@@ -10,6 +10,7 @@ const Post = styled.div`
   width: 100%;
   max-width: 600px;
   margin-bottom: 25px;
+  user-select: none;
 `;
 
 const Header = styled.header`
@@ -96,7 +97,8 @@ export default ({
   likeCount,
   createdAt,
   newComment,
-  currentItem
+  currentItem,
+  toggleLike
 }) => {
   const timeDate = new Date(Date.parse(createdAt)).toString();
   return (
@@ -120,7 +122,9 @@ export default ({
       </Files>
       <Meta>
         <Buttons>
-          <Button>{isLiked ? <HeartFull /> : <HeartEmpty />}</Button>
+          <Button onClick={toggleLike}>
+            {isLiked ? <HeartFull /> : <HeartEmpty />}
+          </Button>
           <Button>
             <Comment />
           </Button>
