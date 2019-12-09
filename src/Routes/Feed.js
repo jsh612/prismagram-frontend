@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
+import Helmet from "react-helmet";
 import Loader from "../Components/Loader";
 import Post from "../Components/Post";
 
@@ -46,6 +47,9 @@ export default () => {
   const { data, loading } = useQuery(FEED_QUERY);
   return (
     <Wrapper>
+      <Helmet>
+        <title>Feed | Prismagram</title>
+      </Helmet>
       {loading && <Loader />}
       {!loading &&
         data &&
@@ -55,6 +59,8 @@ export default () => {
             key={post.id}
             id={post.id}
             user={post.user}
+            location={post.location}
+            caption={post.caption}
             files={post.files}
             likeCount={post.likeCount}
             isLiked={post.isLiked}

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Helmet from "react-helmet";
 import Input from "../../Components/Input";
 import Button from "../../Components/Button";
 
@@ -59,32 +60,47 @@ export default ({
     <Wrapper>
       <Form>
         {action === "logIn" && (
-          <form onSubmit={onSubmit}>
-            {/* <Input placeholder={"Username"} {...username} />
+          <>
+            <Helmet>
+              <title>Log In | Prismagram</title>
+            </Helmet>
+            <form onSubmit={onSubmit}>
+              {/* <Input placeholder={"Username"} {...username} />
             <Input placeholder={"Password"} {...password} type="password" /> */}
-            <Input placeholder={"Email"} {...email} type="email" />
-            <Button text={"로그인"} />
-          </form>
+              <Input placeholder={"Email"} {...email} type="email" />
+              <Button text={"로그인"} />
+            </form>
+          </>
         )}
         {action === "signUp" && (
-          <form onSubmit={onSubmit}>
-            <Input placeholder={"First name"} {...firstName} />
-            <Input placeholder={"Last name"} {...lastName} />
-            <Input placeholder={"Email"} {...email} type="email" />
-            <Input placeholder={"Username"} {...username} />
-            {/* <Input placeholder={"Password"} {...password} type="password" /> */}
-            <Button text={"가입하기"} />
-          </form>
+          <>
+            <Helmet>
+              <title>Sign Up | Prismagram</title>
+            </Helmet>
+            <form onSubmit={onSubmit}>
+              <Input placeholder={"First name"} {...firstName} />
+              <Input placeholder={"Last name"} {...lastName} />
+              <Input placeholder={"Email"} {...email} type="email" />
+              <Input placeholder={"Username"} {...username} />
+              {/* <Input placeholder={"Password"} {...password} type="password" /> */}
+              <Button text={"가입하기"} />
+            </form>
+          </>
         )}
         {action === "confirm" && (
-          <form onSubmit={onSubmit}>
-            <Input
-              placeholder={"비밀 문자를 적어 주세요"}
-              required
-              {...secret}
-            />
-            <Button text={"확인"} />
-          </form>
+          <>
+            <Helmet>
+              <title>Confirm Secret | Prismagram</title>
+            </Helmet>
+            <form onSubmit={onSubmit}>
+              <Input
+                placeholder={"비밀 문자를 적어 주세요"}
+                required
+                {...secret}
+              />
+              <Button text={"확인"} />
+            </form>
+          </>
         )}
       </Form>
       {action !== "confirm" && (
