@@ -111,7 +111,8 @@ export default ({
   currentItem,
   toggleLike,
   onKeyPress,
-  comments
+  comments,
+  selfComments
 }) => {
   const timeDate = new Date(Date.parse(createdAt)).toString();
   return (
@@ -151,6 +152,12 @@ export default ({
                 {comment.text}
               </Comment>
             ))}
+            {selfComments.map(comment => (
+              <Comment key={comment.id}>
+                <FatText text={comment.user.username} />
+                {comment.text}
+              </Comment>
+            ))}
           </Comments>
         )}
         <Timestamp>{timeDate}</Timestamp>
@@ -158,7 +165,7 @@ export default ({
           placeholder={"댓글을 작성해 주세요"}
           value={newComment.value}
           onChange={newComment.onChange}
-          onKeyUp={onKeyPress}
+          onKeyPress={onKeyPress}
         />
       </Meta>
     </Post>

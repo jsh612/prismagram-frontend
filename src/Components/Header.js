@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { Link, withRouter } from "react-router-dom";
-import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 import Input from "./Input";
 import useInput from "../Hooks/useInput";
 import { Compass, HeartEmpty, User, Logo } from "./Icons";
+import { ME } from "../SharedQueries";
 
 const Header = styled.header`
   width: 100%;
@@ -64,13 +64,6 @@ const HeaderLink = styled(Link)`
 `;
 
 export default withRouter(({ history }) => {
-  const ME = gql`
-    {
-      me {
-        username
-      }
-    }
-  `;
   const search = useInput("");
   const onSearchSubmit = e => {
     e.preventDefault();
