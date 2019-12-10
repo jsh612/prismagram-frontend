@@ -41,6 +41,7 @@ const SearchPresenter = ({ searchTerm, loading, data }) => {
           ) : (
             data.searchUser.map(user => (
               <UserCard
+                id={user.id}
                 key={user.id}
                 username={user.username}
                 isFollowing={user.isFollowing}
