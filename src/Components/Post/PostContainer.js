@@ -34,6 +34,8 @@ const PostContainer = ({
   });
 
   const [addCommentMutation] = useMutation(ADD_COMMENT, {
+    //#addCommentMutation
+    //  -The function returns a promise that fulfills with your mutation result.
     variables: {
       postId: id,
       text: comment.value
@@ -52,6 +54,7 @@ const PostContainer = ({
   };
   useEffect(() => {
     slide();
+    return;
   }, [currentItem]);
 
   const toggleLike = () => {
