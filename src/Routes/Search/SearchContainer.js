@@ -12,6 +12,5 @@ export default props => {
       term
     }
   });
-  console.log(data);
   return <SearchPresenter searchTerm={term} loading={loading} data={data} />;
 };
