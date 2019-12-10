@@ -50,11 +50,9 @@ const PostContainer = ({
     } else {
       setTimeout(() => setCurrentItem(currentItem + 1), 2000);
     }
-    return;
   };
   useEffect(() => {
     slide();
-    return;
   }, [currentItem]);
 
   const toggleLike = () => {
