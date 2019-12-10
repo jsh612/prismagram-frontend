@@ -55,6 +55,16 @@ const PostContainer = ({
       setLikeCount(likeCountS + 1);
     }
   };
+
+  const onKeyPress = event => {
+    // react-textarea-autosize를 사용 할 경우,엔터를 누를시 줄이 바뀌고, 일반작인 form 태그를 이용한  제출은 되지 않는다.
+    // 따라서 작성된 텍스트를 엔터로 제출하기 위해서는 눌린 키를 인식하여 제출되도록 해줘야 한다.
+    if (event.keyCode === 13) {
+      comment.setValue(""); // 댓글 작성후 엔터누를시 입력칸 비우기
+      // addCommentMutation();
+    }
+    return;
+  };
   return (
     <PostPresenter
       user={user}
@@ -70,6 +80,7 @@ const PostContainer = ({
       setLikeCount={setLikeCount}
       currentItem={currentItem}
       toggleLike={toggleLike}
+      onKeyPress={onKeyPress}
     />
   );
 };

@@ -7,6 +7,9 @@ const Text = styled.span`
 `;
 
 const FatText = ({ text }) => <Text>{text}</Text>;
+// const FatText = ({ text, className }) => (
+//   <Text className={className}>{text}</Text>
+// );
 
 FatText.propTypes = {
   text: PropTypes.string.isRequired
