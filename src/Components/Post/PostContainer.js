@@ -44,15 +44,18 @@ const PostContainer = ({
 
   const slide = () => {
     const totalFiles = files.length;
+    let timer = null;
     if (currentItem === totalFiles - 1) {
       //해당 파일이 마지막꺼인지 확인
-      setTimeout(() => setCurrentItem(0), 2000);
+      timer = setTimeout(() => setCurrentItem(0), 2000);
     } else {
-      setTimeout(() => setCurrentItem(currentItem + 1), 2000);
+      timer = setTimeout(() => setCurrentItem(currentItem + 1), 2000);
     }
+    return timer;
   };
   useEffect(() => {
-    slide();
+    const timer = slide();
+    clearTimeout(timer);
   }, [currentItem]);
 
   const toggleLike = () => {
