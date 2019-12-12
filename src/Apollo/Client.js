@@ -2,6 +2,8 @@ import ApolloClient from "apollo-boost";
 import { defaults, resolvers } from "./LocalState";
 
 export default new ApolloClient({
+  // ApolloClinet 환경설정 옵션
+  // https://www.apollographql.com/docs/react/get-started/#configuration-options
   uri: "http://localhost:4000",
   // #clientState
   // - https://www.apollographql.com/docs/link/links/state/#with-apollo-boost
