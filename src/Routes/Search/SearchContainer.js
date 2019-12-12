@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import SearchPresenter from "./SearchPresenter";
 import { useQuery } from "@apollo/react-hooks";
 import { SEARCH } from "./SearchQueries";
@@ -14,6 +14,5 @@ export default props => {
       term
     }
   });
-  console.log("검색 data", data);
   return <SearchPresenter searchTerm={term} loading={loading} data={data} />;
 };

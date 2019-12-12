@@ -13,6 +13,7 @@ const Overlay = styled.div`
   opacity: 0;
   transition: opacity 0.3s linear;
   svg {
+    /* fill --> svg 이모티콘의 색 채이기 */
     fill: white;
   }
 `;
