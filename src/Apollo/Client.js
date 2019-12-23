@@ -16,8 +16,9 @@ export default new ApolloClient({
 
   // 인증 방법
   // - https://www.apollographql.com/docs/react/networking/authentication/
+  // - reqquest = 매 요청마다.
   request: operation => {
-    //다음 과정은 confirmSecret을 통해 얻은 token을 header에 넣어주는 역할을 한다.
+    //다음 과정은 매 요청마다 confirmSecret을 통해 얻은 token을 header에 넣어주는 역할을 한다.
     const token = localStorage.getItem("token");
     operation.setContext({
       // #setContext
