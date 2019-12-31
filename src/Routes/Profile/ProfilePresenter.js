@@ -7,6 +7,8 @@ import FatText from "../../Components/FatText";
 import FollowButton from "../../Components/FollowButton";
 import SquarePost from "../../Components/SquarePost";
 import Button from "../../Components/Button";
+import { Route } from "react-router-dom";
+import PostDetail from "../../Components/PostDetail";
 
 const Wrapper = styled.div`
   min-height: 100vh;
@@ -116,6 +118,7 @@ const ProfilePresenter = ({ data, loading, logOut }) => {
             <Bio>{bio}</Bio>
           </HeaderColumn>
         </Header>
+        <Route path="/:postId" component={PostDetail} />
         <Posts>
           {posts &&
             posts.map(post => (
@@ -124,6 +127,8 @@ const ProfilePresenter = ({ data, loading, logOut }) => {
                 likeCount={post.likeCount}
                 commentCount={post.commentCount}
                 file={post.files[0]}
+                postId={post.id}
+                username={username}
               />
             ))}
         </Posts>

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import { Link, Route } from "react-router-dom";
 import { HeartFull, CommentFull } from "./Icons";
 
 const Overlay = styled.div`
@@ -18,7 +19,7 @@ const Overlay = styled.div`
   }
 `;
 
-const Container = styled.div`
+const Container = styled(Link)`
   background-image: url(${props => props.bg});
   background-size: cover;
   cursor: pointer;
@@ -43,8 +44,8 @@ const NumberText = styled.span`
   font-size: 16px;
 `;
 
-const SquarePost = ({ likeCount, commentCount, file }) => (
-  <Container bg={file.url}>
+const SquarePost = ({ likeCount, commentCount, file, postId }) => (
+  <Container bg={file.url} to={`/${postId}`}>
     <Overlay>
       <Number>
         <HeartFull />

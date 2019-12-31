@@ -11,7 +11,7 @@ import Notifications from "../Routes/Notifications";
 const LoggedInRoutes = () => (
   <Switch>
     <Route exact path="/" component={Feed} />
-    <Route exact path="/explore" component={Explore} />
+    <Route exact path="/explore" component={Feed} />
     <Route exact path="/search" component={Search} />
     <Route exact path="/notifications" component={Notifications} />
     <Route exact path="/:username" component={Profile} />
