@@ -91,9 +91,6 @@ export default withRouter(({ history }) => {
           <HeaderLink to="/explore">
             <Compass />
           </HeaderLink>
-          <HeaderLink to="/notifications">
-            <HeartEmpty />
-          </HeaderLink>
           {!data ? (
             <HeaderLink to="/#">
               <User />
