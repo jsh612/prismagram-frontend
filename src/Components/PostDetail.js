@@ -5,6 +5,7 @@ import { useQuery } from "@apollo/react-hooks";
 import Helmet from "react-helmet";
 import Loader from "../Components/Loader";
 import Post from "../Components/Post";
+import { useParams } from "react-router-dom";
 
 const POST_DETAIL = gql`
   query seeFullPost($postId: String!) {
@@ -36,6 +37,8 @@ const POST_DETAIL = gql`
   }
 `;
 
+const Container = styled.div``;
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -43,20 +46,16 @@ const Wrapper = styled.div`
   min-height: 80vh;
 `;
 
-export default ({ history }) => {
-  const {
-    location: { pathname }
-  } = history;
-
-  const postId = pathname.split("/")[1];
-
+export default () => {
+  const { postId } = useParams();
+  console.log("postId:::", postId);
   const { data, loading } = useQuery(POST_DETAIL, {
     variables: {
       postId
     }
   });
   return (
-    <>
+    <Container>
       {data && (
         <Wrapper>
           <Helmet>
@@ -79,6 +78,6 @@ export default ({ history }) => {
           )}
         </Wrapper>
       )}
-    </>
+    </Container>
   );
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import { Link, Route } from "react-router-dom";
+import { Link, Route, useRouteMatch } from "react-router-dom";
 import { HeartFull, CommentFull } from "./Icons";
 
 const Overlay = styled.div`
@@ -44,20 +44,24 @@ const NumberText = styled.span`
   font-size: 16px;
 `;
 
-const SquarePost = ({ likeCount, commentCount, file, postId }) => (
-  <Container bg={file.url} to={`/${postId}`}>
-    <Overlay>
-      <Number>
-        <HeartFull />
-        <NumberText>{likeCount}</NumberText>
-      </Number>
-      <Number>
-        <CommentFull />
-        <NumberText>{commentCount}</NumberText>
-      </Number>
-    </Overlay>
-  </Container>
-);
+const SquarePost = ({ likeCount, commentCount, file, postId }) => {
+  const { url, path } = useRouteMatch();
+  console.log("링크주소:::", `${url}/${postId}`);
+  return (
+    <Container bg={file.url} to={`${url}/${postId}`}>
+      <Overlay>
+        <Number>
+          <HeartFull />
+          <NumberText>{likeCount}</NumberText>
+        </Number>
+        <Number>
+          <CommentFull />
+          <NumberText>{commentCount}</NumberText>
+        </Number>
+      </Overlay>
+    </Container>
+  );
+};
 
 SquarePost.propTypes = {
   likeCount: PropTypes.number.isRequired,

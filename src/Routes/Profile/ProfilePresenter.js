@@ -7,7 +7,7 @@ import FatText from "../../Components/FatText";
 import FollowButton from "../../Components/FollowButton";
 import SquarePost from "../../Components/SquarePost";
 import Button from "../../Components/Button";
-import { Route } from "react-router-dom";
+import { Route, Link, useRouteMatch } from "react-router-dom";
 import PostDetail from "../../Components/PostDetail";
 
 const Wrapper = styled.div`
@@ -62,7 +62,16 @@ const Posts = styled.div`
   grid-auto-rows: 200px;
 `;
 
+const SLink = styled(Link)`
+  width: 100px;
+  height: 50px;
+  background-color: blue;
+`;
+
 const ProfilePresenter = ({ data, loading, logOut }) => {
+  const { path } = useRouteMatch();
+  console.log("path:::", path);
+
   if (loading) {
     return (
       <Wrapper>
@@ -85,6 +94,7 @@ const ProfilePresenter = ({ data, loading, logOut }) => {
         posts
       }
     } = data;
+
     return (
       <Wrapper>
         <Helmet>
@@ -118,7 +128,6 @@ const ProfilePresenter = ({ data, loading, logOut }) => {
             <Bio>{bio}</Bio>
           </HeaderColumn>
         </Header>
-        <Route path="/:postId" component={PostDetail} />
         <Posts>
           {posts &&
             posts.map(post => (
