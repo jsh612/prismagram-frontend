@@ -69,6 +69,7 @@ const SearchPresenter = ({ searchTerm, loading, data }) => {
                 id={post.id}
                 key={post.id}
                 likeCount={post.likeCount}
+                postId={post.id}
                 commentCount={post.commentCount}
                 file={post.files[0]}
               />
