@@ -95,6 +95,7 @@ export default () => {
           const {
             data: { confirmSecret: token }
           } = await confirmSecretMutation();
+          console.log("AuthContainer token:::", token);
           if (token !== "" && token !== undefined) {
             localLogInMutation({
               variables: {
