@@ -8,7 +8,7 @@ export default new ApolloClient({
   uri:
     process.env.NODE_ENV === "development"
       ? "http://localhost:4000"
-      : "https://prismagram-backend.herokuapp.com",,
+      : "https://prismagram-backend.herokuapp.com",
 
   // #clientState
   // - https://www.apollographql.com/docs/link/links/state/#with-apollo-boost
