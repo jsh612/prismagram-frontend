@@ -5,7 +5,10 @@ export default new ApolloClient({
   // ApolloClinet 환경설정 옵션
   // https://www.apollographql.com/docs/react/get-started/#configuration-options
 
-  uri: "http://localhost:4000",
+  uri:
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:4000"
+      : "https://prismagram-backend.herokuapp.com",,
 
   // #clientState
   // - https://www.apollographql.com/docs/link/links/state/#with-apollo-boost

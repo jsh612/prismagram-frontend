@@ -45,7 +45,7 @@ const NumberText = styled.span`
 `;
 
 const SquarePost = ({ likeCount, commentCount, file, postId }) => {
-  const { url, path } = useRouteMatch();
+  const { url } = useRouteMatch();
   console.log("링크주소:::", `${url}/${postId}`);
   return (
     <Container bg={file.url} to={`${url}/${postId}`}>
