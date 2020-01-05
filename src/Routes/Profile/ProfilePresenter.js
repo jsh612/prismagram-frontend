@@ -7,8 +7,7 @@ import FatText from "../../Components/FatText";
 import FollowButton from "../../Components/FollowButton";
 import SquarePost from "../../Components/SquarePost";
 import Button from "../../Components/Button";
-import { Route, Link, useRouteMatch } from "react-router-dom";
-import PostDetail from "../../Components/PostDetail";
+import { useRouteMatch } from "react-router-dom";
 
 const Wrapper = styled.div`
   min-height: 100vh;
@@ -60,12 +59,8 @@ const Posts = styled.div`
   grid-template-columns: repeat(4, 200px);
   grid-template-rows: 200px;
   grid-auto-rows: 200px;
-`;
-
-const SLink = styled(Link)`
-  width: 100px;
-  height: 50px;
-  background-color: blue;
+  align-items: center;
+  justify-content: center;
 `;
 
 const ProfilePresenter = ({ data, loading, logOut }) => {
