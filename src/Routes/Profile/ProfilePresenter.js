@@ -54,13 +54,16 @@ const Bio = styled.p`
   margin: 15px 0px;
 `;
 
+const PostsContainer = styled.div`
+  align-items: center;
+  justify-content: center;
+`;
+
 const Posts = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 200px);
   grid-template-rows: 200px;
   grid-auto-rows: 200px;
-  align-items: center;
-  justify-content: center;
 `;
 
 const ProfilePresenter = ({ data, loading, logOut }) => {
@@ -123,19 +126,21 @@ const ProfilePresenter = ({ data, loading, logOut }) => {
             <Bio>{bio}</Bio>
           </HeaderColumn>
         </Header>
-        <Posts>
-          {posts &&
-            posts.map(post => (
-              <SquarePost
-                key={post.id}
-                likeCount={post.likeCount}
-                commentCount={post.commentCount}
-                file={post.files[0]}
-                postId={post.id}
-                username={username}
-              />
-            ))}
-        </Posts>
+        <PostsContainer>
+          <Posts>
+            {posts &&
+              posts.map(post => (
+                <SquarePost
+                  key={post.id}
+                  likeCount={post.likeCount}
+                  commentCount={post.commentCount}
+                  file={post.files[0]}
+                  postId={post.id}
+                  username={username}
+                />
+              ))}
+          </Posts>
+        </PostsContainer>
       </Wrapper>
     );
   }
