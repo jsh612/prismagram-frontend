@@ -7,8 +7,10 @@ import UserCard from "../../Components/UserCard";
 import SquarePost from "../../Components/SquarePost";
 
 const Wrapper = styled.div`
-  height: 60vh;
-  margin-bottom: 10px;
+  position: relative;
+  /* height: 60vh; */
+  margin-bottom: 20px;
+  padding-bottom: 10px;
 `;
 
 const Section = styled.div`
@@ -24,7 +26,6 @@ const PostSection = styled(Section)`
   grid-template-columns: repeat(4, 200px);
   grid-template-rows: 200px;
   grid-auto-rows: 200px;
-  margin-bottom: 20px;
 `;
 
 const SearchPresenter = ({ searchTerm, loading, data }) => {
